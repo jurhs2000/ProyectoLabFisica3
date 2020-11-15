@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ParamsSelect.unity
     guid: 5f627f33bc334a04fafd1c1554c6e496
+  - enabled: 1
+    path: Assets/Scenes/Simulation.unity
+    guid: f0df62534ea8a5a4da5196cdb47a5b29
   m_configObjects: {}
