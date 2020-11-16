@@ -10,10 +10,10 @@ public class RuntimeData : MonoBehaviour
     public Particle[] poblation2 = new Particle[n_poblation];
     public Particle[] poblation3 = new Particle[n_poblation];
     // TO DO: Data de los otros parametros de la simulacion
-    public double platesDistance = 5;
-    public double voltage = 12;
-    public double magneticFieldSelector = 1;
-    public double magneticFieldDeflector = 1;
+    public double platesDistance = 0.005; // metros
+    public double voltage = 12; // volts
+    public double magneticFieldSelector = 1; // tesla
+    public double magneticFieldDeflector = 1; // tesla
     // --
     public static RuntimeData instance; // Static para que sea la misma en toda la simulacion
 
@@ -29,13 +29,31 @@ public class RuntimeData : MonoBehaviour
         DontDestroyOnLoad(gameObject); // El objeto original no se destruye
     }
 
+    /**
+     * Seleccionados los tres tipos de particulas, se hace que todos los objetos
+     * de las 3 poblaciones sean cada uno de un tipo
+     */
     public void initializeParticles(Particle type1, Particle type2, Particle type3)
     {
         for (int i = 0; i < n_poblation; i++)
         {
-            poblation1[i] = type1;
-            poblation2[i] = type2;
-            poblation3[i] = type3;
+            poblation1[i] = new Particle(type1.name, type1.charge, type1.mass);
+            poblation2[i] = new Particle(type2.name, type2.charge, type2.mass);
+            poblation3[i] = new Particle(type3.name, type3.charge, type3.mass);
+        }
+    }
+
+    /**
+     * Genera las velocidades random para cada particula de las 3 poblaciones
+     * en el rango establecido en los parametros de entrada (en metros/segundos)
+     */
+    public void setRandomVelocity(int minVelocity, int maxVelocity)
+    {
+        for (int i = 0; i < n_poblation; i++)
+        {
+            poblation1[i].velocity = Random.Range(minVelocity, maxVelocity);
+            poblation2[i].velocity = Random.Range(minVelocity, maxVelocity);
+            poblation3[i].velocity = Random.Range(minVelocity, maxVelocity);
         }
     }
 }

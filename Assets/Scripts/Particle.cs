@@ -13,7 +13,7 @@ public class Particle
     public string name;
     public double charge;
     public double mass;
-    public double velocity;
+    public int velocity;
     public double x;
     public double y;
     public double magneticForce;
