@@ -12,9 +12,10 @@ public class RuntimeData : MonoBehaviour
     // TO DO: Data de los otros parametros de la simulacion
     public double platesDistance = 0.005; // metros
     public double voltage = 12; // volts
+    public double electricField;
     public double magneticFieldSelector = 1; // tesla
     public double magneticFieldDeflector = 1; // tesla
-    // --
+    // Otros
     public static RuntimeData instance; // Static para que sea la misma en toda la simulacion
 
     void Awake() // Al iniciarse en cada escena prueba...
@@ -55,5 +56,14 @@ public class RuntimeData : MonoBehaviour
             poblation2[i].velocity = Random.Range(minVelocity, maxVelocity);
             poblation3[i].velocity = Random.Range(minVelocity, maxVelocity);
         }
+
+        // Ya que este metodo es llamado al pasar a la simulacion
+        // aprovechamos para calcular el campo electrico
+        calculateElectricField();
+    }
+
+    private void calculateElectricField()
+    {
+        electricField = voltage / platesDistance;
     }
 }

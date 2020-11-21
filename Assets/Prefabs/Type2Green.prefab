@@ -106,3 +106,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b1decbd208374c8aba10717ddb0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleInfo:
+    name: 
+    charge: 0
+    mass: 0
+    velocity: 0
+    x: 0
+    y: 0
+    magneticForce: 0
+    electricForce: 0
+    acceleration: 0
+    angle: 0
+    ratio: 0
+    centripetalAcceleration: 0
+  timeDelay: 0

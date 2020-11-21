@@ -10,6 +10,14 @@ public class Particle
         this.charge = charge;
         this.mass = mass;
     }
+    public Particle(string name, double charge, double mass, int velocity)
+    {
+        this.name = name;
+        this.charge = charge;
+        this.mass = mass;
+        this.velocity = velocity;
+    }
+
     public string name;
     public double charge;
     public double mass;

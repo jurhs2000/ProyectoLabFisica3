@@ -25,7 +25,7 @@ public class ParticleSelectSceneController : MonoBehaviour
 
     public void NextButton()
     {
-        runtimeData.initializeParticles(particlesData[1], particlesData[2], particlesData[4]); // TO-DO: Particulas de prueba solamente hasta tener UI
+        runtimeData.initializeParticles(particlesData[1], particlesData[2], particlesData[5]); // TO-DO: Particulas de prueba solamente hasta tener UI
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
