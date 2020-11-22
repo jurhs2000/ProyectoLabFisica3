@@ -45,8 +45,9 @@ public class Movement : MonoBehaviour
                 if (particleInfo.electricForce != particleInfo.magneticForce)
                 {
                     particleInfo.acceleration = (particleInfo.electricForce - particleInfo.magneticForce) / particleInfo.mass;
-                    // Movimiento simulado en el eje Y, ya que este realmente es muy grande. Solo se tomara el signo de la aceleracion
-                    particleInfo.y = (double)((particleInfo.acceleration/Mathf.Abs((float)particleInfo.acceleration)) * 500 * (time - timeSelector0));
+                    // Movimiento simulado en el eje Y, ya que este realmente es muy grande.
+                    particleInfo.y = (double)((particleInfo.acceleration * Mathf.Pow((time - timeSelector0),2))/2);
+                    particleInfo.y = (particleInfo.y / Mathf.Abs((float)particleInfo.y)) * (Mathf.Log10(Mathf.Abs((float)particleInfo.y)))/8;
                     // Comprobar extremos del selector para parar la particula
                     if (gameObject.transform.position.y > (selectorTrigger.position.y + (selectorTrigger.localScale.y / 2)) ||  // Extremo superior
                         gameObject.transform.position.y < (selectorTrigger.position.y - (selectorTrigger.localScale.y / 2)))    // Extremo inferior
