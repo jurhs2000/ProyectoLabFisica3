@@ -48,18 +48,19 @@ public class RuntimeData : MonoBehaviour
      * Genera las velocidades random para cada particula de las 3 poblaciones
      * en el rango establecido en los parametros de entrada (en metros/segundos)
      */
-    public void setRandomVelocity(int minVelocity, int maxVelocity)
+    public void setRandomVelocity(int range)
     {
-        for (int i = 0; i < n_poblation; i++)
-        {
-            poblation1[i].velocity = Random.Range(minVelocity, maxVelocity);
-            poblation2[i].velocity = Random.Range(minVelocity, maxVelocity);
-            poblation3[i].velocity = Random.Range(minVelocity, maxVelocity);
-        }
-
         // Ya que este metodo es llamado al pasar a la simulacion
         // aprovechamos para calcular el campo electrico
         calculateElectricField();
+        int vel = System.Convert.ToInt32(electricField / magneticFieldSelector);
+        for (int i = 0; i < n_poblation; i++)
+        {
+            poblation1[i].velocity = Random.Range(vel - range, vel + range);
+            poblation2[i].velocity = Random.Range(vel - range, vel + range);
+            poblation3[i].velocity = Random.Range(vel - range, vel + range);
+        }
+
     }
 
     private void calculateElectricField()

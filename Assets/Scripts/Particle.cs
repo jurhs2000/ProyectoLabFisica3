@@ -29,5 +29,6 @@ public class Particle
     public double acceleration;
     public double angle;
     public double ratio;
+    public double angularVelocity;
     public double centripetalAcceleration;
 }

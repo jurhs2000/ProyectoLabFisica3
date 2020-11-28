@@ -14,7 +14,7 @@ public class ParamsSelectSceneController : MonoBehaviour
 
     public void NextButton()
     {
-        runtimeData.setRandomVelocity(2375, 2425);
+        runtimeData.setRandomVelocity(25);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

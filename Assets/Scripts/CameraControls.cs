@@ -23,7 +23,7 @@ public class CameraControls : MonoBehaviour
             gameObject.GetComponent<Camera>().orthographicSize = gameObject.GetComponent<Camera>().orthographicSize - 1;
 
         if (Input.GetKey(KeyCode.S)
-            && gameObject.GetComponent<Camera>().orthographicSize < 100)
+            && gameObject.GetComponent<Camera>().orthographicSize < 200)
             gameObject.GetComponent<Camera>().orthographicSize = gameObject.GetComponent<Camera>().orthographicSize + 1;
     }
 }
